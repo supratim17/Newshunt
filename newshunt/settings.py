@@ -76,12 +76,8 @@ WSGI_APPLICATION = 'newshunt.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'newshunt',
-        'USER': 'root',
-        'PASSWORD': 'wriju17.',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydb',
     }
 }
 

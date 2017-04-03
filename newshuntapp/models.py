@@ -21,7 +21,6 @@ class User(models.Model):
 	last_name=models.CharField(max_length=30)
 	password=models.CharField(max_length=30)
 	email=models.CharField(max_length=20)
-	role=models.ForeignKey(Role, on_delete=models.CASCADE)
 
 class Article(models.Model):
 	"""docstring for Article"""
