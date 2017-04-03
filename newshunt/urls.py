@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from newshuntapp.views import register
+from newshuntapp.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^register/', register, name = 'register'),
+    url(r'^addarticle/', addArticle, name = 'addArticle')
 ]

@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
-from newshuntapp.forms import UserForm
+from newshuntapp.forms import *
 
 def register(request):
 	# Get the context from the request.
@@ -12,7 +12,6 @@ def register(request):
 
     # A HTTP POST?
     if request.method == 'POST':
-        print(request.POST)
         reg_user = UserForm(request.POST)
         # Have we been provided with a valid form?
         if reg_user.is_valid():
@@ -31,3 +30,19 @@ def register(request):
     #return render_to_response('index.html', {'user': user}, context)
     #return render(request, 'index.html', {'reg_user' : reg_user})
     return render(request, "index.html", {'form': reg_user})
+
+
+def addArticle(request):
+
+	if request.method == 'POST':
+		new_article = ArticleForm(request.POST)
+
+		if new_article.is_valid():
+			new_article.save(commit=True)
+		else:
+			print new_article.errors
+	else:
+		new_article = ArticleForm()
+	return render(request, "addarticle.html", {'form': new_article})
+
+
