@@ -24,8 +24,29 @@
         <div class="z-depth-1">
             <div class="row">
                 <form class="col s10 push-s1" method="POST" action={% url 'register' %}>
-                	{% csrf_token %}
-                	{{ form }}
+                    {% csrf_token %} {{ form.non_field_errors }}
+                    <div class="row">
+                        <div class="input-field col s6">
+                            {{ form.firstname.errors }}
+                            <label for="{{ form.firstname.id_for_label }}">First Name</label>
+                            {{ form.first_name }}
+                        </div>
+                        <div class="input-field col s6">
+                            {{ form.lastname.errors }}
+                            <label for="{{ form.lastname.id_for_label }}">Last Name</label>
+                            {{ form.last_name }}
+                        </div>
+                        <div class="input-field col s12">
+                            {{ form.password.errors }}
+                            <label for="{{ form.password.id_for_label }}">Password</label>
+                            {{ form.password}}
+                        </div>
+                        <div class="input-field col s12">
+                            {{ form.email.errors }}
+                            <label for="{{ form.email.id_for_label }}">Email</label>
+                            {{ form.email}}
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="col s4 push-s4">

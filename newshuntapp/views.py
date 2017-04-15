@@ -18,6 +18,7 @@ def register(request):
             # Save the new category to the database.
             reg_user.role='Reader'
             reg_user.save(commit=True)
+            reg_user = UserForm()
         else:
             # The supplied form contained errors - just print them to the terminal.
             print reg_user.errors
@@ -27,8 +28,6 @@ def register(request):
 
     # Bad form (or form details), no form supplied...
     # Render the form with error messages (if any).
-    #return render_to_response('index.html', {'user': user}, context)
-    #return render(request, 'index.html', {'reg_user' : reg_user})
     return render(request, "index.html", {'form': reg_user})
 
 
