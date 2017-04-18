@@ -15,10 +15,13 @@ class UserForm(forms.ModelForm):
         'email': forms.EmailInput(),
     }
 
-class ArticleForm(ModelForm):
+class ArticleForm(forms.ModelForm):
 	"""docstring for ArticleForm"ModelForm"""
 	class Meta:
 		model=Article
+		category_name=forms.ModelChoiceField(queryset=Category.objects.all())
 		fields = ['title','date','content','image_path','category_name']
-		
-		
+		widgets = {
+			'date': forms.DateInput(),
+			'category_name': forms.Select(),
+		}

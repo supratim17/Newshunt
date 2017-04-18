@@ -13,15 +13,16 @@ def register(request):
     # A HTTP POST?
     if request.method == 'POST':
         reg_user = UserForm(request.POST)
+        reg_user.role='Reader'
         # Have we been provided with a valid form?
         if reg_user.is_valid():
             # Save the new category to the database.
-            reg_user.role='Reader'
-            reg_user.save(commit=True)
+            reg_user.save()
             reg_user = UserForm()
         else:
             # The supplied form contained errors - just print them to the terminal.
             print reg_user.errors
+            reg_user = UserForm()
     else:
         # If the request was not a POST, display the form to enter details.
         reg_user = UserForm()
@@ -37,11 +38,12 @@ def addArticle(request):
 		new_article = ArticleForm(request.POST)
 
 		if new_article.is_valid():
-			new_article.save(commit=True)
+			new_article.save()
 		else:
 			print new_article.errors
 	else:
 		new_article = ArticleForm()
+        
 	return render(request, "addarticle.html", {'form': new_article})
 
 

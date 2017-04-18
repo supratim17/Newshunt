@@ -23,9 +23,35 @@
         </nav>
         <div class="z-depth-1">
             <div class="row">
-                <form class="col s10 push-s1" method="POST" action={% url 'register' %}>
-                	{% csrf_token %}
-                	{{ form }}
+                <form class="col s10 push-s1" method="POST" action={% url 'addArticle' %}>
+                	{% csrf_token %} {{ form.non_field_errors }}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form.title.errors }}
+                            <label for="{{ form.title.id_for_label }}">Title</label>
+                            {{ form.title }}
+                        </div>
+                        <div class="input-field col s12">
+                            {{ form.date.errors }}
+                            <label for="{{ form.date.id_for_label }}">Date</label>
+                            {{ form.date }}
+                        </div>
+                        <div class="input-field col s12">
+                            {{ form.content.errors }}
+                            <label for="{{ form.content.id_for_label }}">Content</label>
+                            {{ form.content }}
+                        </div>
+                        <div class="input-field col s12">
+                            {{ form.image_path.errors }}
+                            <label for="{{ form.image_path.id_for_label }}">Image Path</label>
+                            {{ form.image_path }}
+                        </div>
+                        <div class="input-field col s12">
+                            {{ form.category.errors }}
+                            <label for="{{ form.category.id_for_label }}">Category</label>
+                            {{ form.category }}
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="col s4 push-s4">

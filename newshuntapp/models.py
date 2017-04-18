@@ -21,6 +21,7 @@ class User(models.Model):
 	last_name=models.CharField(max_length=30)
 	password=models.CharField(max_length=30)
 	email=models.CharField(max_length=50)
+	role=models.CharField(max_length=10, default='Reader')
 
 class Article(models.Model):
 	"""docstring for Article"""
