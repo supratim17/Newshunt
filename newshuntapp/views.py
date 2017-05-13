@@ -39,8 +39,10 @@ def addArticle(request):
 
 		if new_article.is_valid():
 			new_article.save()
-		else:
+			new_article = ArticleForm()
+		else:            
 			print new_article.errors
+			new_article = ArticleForm()
 	else:
 		new_article = ArticleForm()
         

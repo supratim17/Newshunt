@@ -2,6 +2,10 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+from django.utils import timezone
+
+import datetime
+
 # from django.forms import ModelForm
 
 # Create your models here.
@@ -26,9 +30,10 @@ class User(models.Model):
 class Article(models.Model):
 	"""docstring for Article"""
 	title=models.CharField(max_length=200)
-	date=models.DateField()
+	date=models.DateField(default= timezone.now)
 	content=models.CharField(max_length=4000)
 	image_path=models.CharField(max_length=100)
 	category_name=models.ForeignKey(Category, on_delete=models.CASCADE)
-	likes=models.IntegerField()
-	dislikes=models.IntegerField()
+	# category_name=models.CharField(max_length=10)
+	likes=models.IntegerField(null= True)
+	dislikes=models.IntegerField(null= True)
