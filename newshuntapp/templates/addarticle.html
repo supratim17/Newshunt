@@ -43,6 +43,11 @@
                             {{ form.date }}
                         </div>
                         <div class="input-field col s12">
+                            {{ form.location.errors }}
+                            <label for="{{ form.location.id_for_label }}">Location</label>
+                            {{ form.location }}
+                        </div>
+                        <div class="input-field col s12">
                             {{ form.content.errors }}
                             <label for="{{ form.content.id_for_label }}">Content</label>
                             {{ form.content }}

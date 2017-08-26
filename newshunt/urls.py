@@ -21,5 +21,6 @@ from newshuntapp.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^register/', register, name = 'register'),
-    url(r'^addarticle/', addArticle, name = 'addArticle')
+    url(r'^addarticle/', addArticle, name = 'addArticle'),
+    url(r'^homepage/', ArticleListView.as_view(template_name = "homepage.html"), name = 'showarticle')
 ]

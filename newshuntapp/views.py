@@ -1,10 +1,16 @@
 from django.shortcuts import render
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.utils import timezone
+
+# from articles.models import Article
 
 # Create your views here.
 
 from django.http import HttpResponse
 
 from newshuntapp.forms import *
+from newshuntapp.models import *
 
 def register(request):
 	# Get the context from the request.
@@ -49,3 +55,11 @@ def addArticle(request):
 	return render(request, "addarticle.html", {'form': new_article})
 
 
+class ArticleListView(ListView):
+
+    model = Article
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleListView, self).get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context

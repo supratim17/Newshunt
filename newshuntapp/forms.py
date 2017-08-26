@@ -15,15 +15,15 @@ class UserForm(forms.ModelForm):
         'email': forms.EmailInput(),
     }
 
-CHOICES = (('1', 'First',), ('2', 'Second',))
+CHOICES = (('First'), ('Second'))
 
 class ArticleForm(forms.ModelForm):
 	"""docstring for ArticleForm"ModelForm"""
 	class Meta:
 		model=Article
-		fields = ['title','date','content','image_path','category_name']
-		category_name=forms.ModelChoiceField(queryset=Category.objects.values('category_name'))
-		# category_name=forms.ChoiceField(widget=forms.RadioSelect, choices= CHOICES)
+		fields = ['title','date','content','image_path','location','category_name']
+		category_name=forms.ModelChoiceField(queryset=Category.objects.values("category_name"))
+		# category_name=forms.ChoiceField(choices= CHOICES)
 		widgets = {
 			'date': forms.DateInput(),
 		}

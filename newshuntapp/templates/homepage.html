@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <!-- <link type="text/plain" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <script>
+    $(document).ready(function() {
+        $('.carousel').carousel();
+    });
+    </script>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NewsHunt Homepage</title>
+</head>
+
+<body class="container" background="http://orig14.deviantart.net/6ac8/f/2014/310/a/3/red_dwarf_dreams__4___hazy_skies_by_nirklars-d85hdx9.jpg">
+    <div class="row col s6">
+        <nav>
+            <div class="nav-wrapper blue-grey darken-3">
+                <a href="#" class="brand-logo center">Homepage</a>
+            </div>
+        </nav>
+        <!-- <div class="carousel carousel-slider">
+            {% for article in object_list %}
+            <a href="#">
+            <p>{{ article.date|date }} - {{ article.title }}</p>
+            <img src={{ article.image_path }}>
+            <p>{{ article.content }}</p>
+            </a>
+            {% empty %}
+            <li>No articles yet.</li>
+            {% endfor %}
+        </div> -->
+        <div class="card">
+            {% for article in object_list %}
+            <div class="col s4">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src={{ article.image_path }}>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{ article.title }}<i class="material-icons right">close</i></span>
+                    <p>{{ article.content }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
